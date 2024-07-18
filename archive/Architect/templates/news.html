@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="md-4">News</h2>
+    <p class="lead md-5">D'après notre descente sur terrain et analyse des données sur les bâtiments de l’administration publics de la ville de Likasi, nous avions enquêtés et en fonction des résultats obtenus les bâtiments ci-après ont été répertoriés en fonction de leurs valeurs comme patrimoine de la ville de Likasi. </p>
+
+    <h3>Anciens Bâtiments</h3>
+    <div id="oldNewsCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    {% for archive in old_archives %}
+                    <div class="col-md-4 animate__animated animate__fadeInUp">
+                        <div class="card md-4">
+                            <img src="{{ archive.image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ archive.building.address }}</h5>
+                                <p class="card-text">{{ archive.description }}</p>
+                                <a href="{{ archive.plan_2d.url }}" class="btn btn-primary">Voir {{ archive.state }} Plan 2D</a>
+                                <a href="{{ archive.plan_3d.url }}" class="btn btn-secondary">Voir {{ archive.state }} Plan 3D</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Nouveaux Bâtiments</h3>
+    <div id="newNewsCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    {% for archive in new_archives %}
+                    <div class="col-md-4 animate__animated animate__fadeInUp">
+                        <div class="card md-4">
+                            <img src="{{ archive.image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ archive.building.address }}</h5>
+                                <p class="card-text">{{ archive.description }}</p>
+                                <a href="{{ archive.plan_2d.url }}" class="btn btn-primary">Voir {{ archive.state }} Plan 2D</a>
+                                <a href="{{ archive.plan_3d.url }}" class="btn btn-secondary">Voir {{ archive.state }} Plan 3D</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

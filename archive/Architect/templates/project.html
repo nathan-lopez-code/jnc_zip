@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="projet" class="projet-section">
+    <div class="container">
+        <h2 class="mb-4 animate__animated animate__fadeInDown">Nos Projets</h2>
+        <div class="col-lg-6">
+            <!-- <h4 class="display-4 mb-4">Historique</h4> -->
+            <p class="lead md-4">Selon l'inventaire effectué sur le terrain au sein du service urbain des infrastructures et travaux publics de la ville de Likasi, nous avons regroupé les bâtiments en deux groupes, à savoir :</p>
+            <p class="lead md-4">Édifices nouvellement construits</p>
+            <p class="lead md-4">Édifices anciennement construits</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Anciens Bâtiments</h3>
+                <input type="text" id="searchOldBuildings" class="form-control mb-3" placeholder="Rechercher">
+                <table class="table table-striped animate__animated animate__fadeInUp">
+                    <thead>
+                        <tr>
+                            <th>Adresse</th>
+                            <th>Service utilisateur</th>
+                            <th>Année de construction</th>
+                            <th>État immobilier</th>
+                            <th>Observation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="oldBuildingsTable">
+                        {% for building in old_buildings %}
+                        <tr>
+                            <td>{{ building.address }}</td>
+                            <td>{{ building.server_user }}</td>
+                            <td>{{ building.construction_year }}</td>
+                            <td>{{ building.etat_immeuble }}</td>
+                            <td>{{ building.observation }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="col-md-6">
+                <h3>Nouveaux Bâtiments</h3>
+                <input type="text" id="searchNewBuildings" class="form-control mb-3" placeholder="Rechercher">
+                <table class="table table-striped animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <thead>
+                        <tr>
+                            <th>Adresse</th>
+                            <th>Service utilisateur</th>
+                            <th>Année de construction</th>
+                            <th>État immobilier</th>
+                            <th>Observation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="newBuildingsTable">
+                        {% for building in new_buildings %}
+                        <tr>
+                            <td>{{ building.address }}</td>
+                            <td>{{ building.server_user }}</td>
+                            <td>{{ building.construction_year }}</td>
+                            <td>{{ building.etat_immeuble }}</td>
+                            <td>{{ building.observation }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </div>
+</section>
+{% endblock %}

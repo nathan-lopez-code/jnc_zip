@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="home" class="home">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="typewriter">
+                    <h1 class="display-5 mb-5">Bienvenue sur le site de gestion du patrimoine public de Likasi.</h1>
+                </div>
+                <p class="lead md-7">Notre objectif est de préserver et valoriser le riche héritage architectural et culturel de notre ville grâce à des techniques modernes d'inventaire et d'archivage numérique.</p>
+            </div>
+            {% for image in images %}
+            <div class="col-lg-6 floating-image">
+                <img src="{{ image.image.url }}" alt="Bâtiment" class="img-fluid">
+            </div>
+            {% endfor %}
+        
+        </div>
+        <p class="lead md-4">Cette application a été conçue pour préserver et valoriser le patrimoine architectural de notre ville. Grâce à notre base de données numérique, vous pourrez découvrir l'histoire et les caractéristiques de chacun des bâtiments publics de Likasi, du plus ancien au plus récent.</p>
+        <p class="lead md-4">Accéder facilement aux informations détaillées sur les bâtiments publics (plans, photos, date de construction, style architectural, etc.) Effectuer des recherches avancées par nom, type de bâtiment ou localisation</p>
+        <p class="lead md-4">Visualiser l'évolution de ces bâtiments à travers le temps grâce aux archives numérisées
+        Signaler toute information manquante ou erronée afin d'améliorer continuellement notre base de données.</p>
+        <p class="lead md-4">Notre objectif est de faire de cette application un outil incontournable pour tous ceux qui souhaitent mieux connaître et préserver le patrimoine architectural de Likasi. Explorez dès maintenant notre riche histoire bâtie !</p>
+    </div>
+</section>
+{% endblock %}

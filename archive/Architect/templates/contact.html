@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="contact" class="contact">
+    <div class="team">
+        {% for chef in chefs %}
+        <div class="team-member">
+            <img src="{{ chef.image.url }}" alt="Architect 1">
+            <div class="info">
+                <h3>{{chef.name }}</h3>
+                <p>{{chef.qualification }}</p>
+            </div>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-whatsapp' ></i></a>
+            </div>
+            <div class="overlay">
+                <h3>{{chef.name }}</h3>
+                <p>{{chef.qualification }}</p>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-whatsapp' ></i></a>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}   
+    </div>
+</section>
+{% endblock %}
